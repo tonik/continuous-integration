@@ -1,3 +1,3 @@
-## Boilerplates Continuous Integration
+## Tonik - Continuous Integration
 
-Docker images intended to use as Continuous Integration building containers for our boilerplates.
+Docker images intended to use as continuous integration building containers for our boilerplates
