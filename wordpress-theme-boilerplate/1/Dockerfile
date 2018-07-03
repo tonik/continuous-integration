@@ -19,7 +19,8 @@ RUN apk add --no-cache \
 
 RUN apk add --update \
         nodejs \
-        nodejs-npm
+        nodejs-npm \
+    && rm -rf /tmp/* /var/cache/apk/*
 
 RUN apk add --update \
         php7 \
