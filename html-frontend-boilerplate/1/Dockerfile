@@ -15,8 +15,9 @@ RUN apk add --no-cache \
         libpng \
         libpng-dev \
         libtool \
-        libnotify \
-    && apk add --update \
+        libnotify
+
+RUN apk add --update \
         nodejs \
         nodejs-npm \
     && rm -rf /tmp/* /var/cache/apk/*

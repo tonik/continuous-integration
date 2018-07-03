@@ -15,11 +15,13 @@ RUN apk add --no-cache \
         libpng \
         libpng-dev \
         libtool \
-        libnotify \
-    && apk add --update \
+        libnotify
+
+RUN apk add --update \
         nodejs \
-        nodejs-npm \
-    && apk add --update \
+        nodejs-npm
+
+RUN apk add --update \
         php7 \
         php7-zip \
         php7-json \
