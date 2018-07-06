@@ -1,25 +1,11 @@
-FROM alpine:3.6
+FROM tonikstudio/base:latest
 
-RUN apk add --no-cache \
-        g++ \
-        gcc \
-        git \
-        bash \
-        file \
-        nasm \
-        make \
-        automake \
-        autoconf \
-        gettext \
-        libjpeg \
-        libpng \
-        libpng-dev \
-        libtool
-
-RUN apk add --update \
-        nodejs \
-        nodejs-npm \
-    && rm -rf /tmp/* /var/cache/apk/*
+RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+    && apk add --update \
+        libuv@edge \
+        nodejs@edge \
+        nodejs-npm@edge \
+    && rm -rf /var/cache/apk/*
 
 RUN apk add --update \
         php7 \
@@ -28,10 +14,10 @@ RUN apk add --update \
         php7-phar \
         php7-openssl \
         php7-mbstring \
-    && rm -rf /tmp/* /var/cache/apk/* \
     && ln -nfs /usr/bin/php7 /usr/bin/php \
-    && ln -nfs /etc/php7 /etc/php
+    && ln -nfs /etc/php7 /etc/php \
+    && rm -rf /var/cache/apk/*
 
 COPY --from=composer:1.6 /usr/bin/composer /usr/bin/composer
 
-CMD ["php", "composer", "npm"]
+CMD ["npm", "php", "composer"]

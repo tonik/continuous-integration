@@ -1,25 +1,10 @@
-FROM alpine:3.6
+FROM tonikstudio/base:latest
 
-RUN apk add --no-cache \
-        g++ \
-        gcc \
-        git \
-        bash \
-        file \
-        nasm \
-        make \
-        automake \
-        autoconf \
-        gettext \
-        libjpeg \
-        libpng \
-        libpng-dev \
-        libtool \
-        libnotify
-
-RUN apk add --update \
-        nodejs \
-        nodejs-npm \
-    && rm -rf /tmp/* /var/cache/apk/*
+RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
+    && apk add --update \
+        libuv@edge \
+        nodejs@edge \
+        nodejs-npm@edge \
+    && rm -rf /var/cache/apk/*
 
 CMD ["npm"]
