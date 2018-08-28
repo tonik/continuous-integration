@@ -12,6 +12,7 @@ RUN apk add --update \
         php7-zip \
         php7-json \
         php7-phar \
+        php7-ctype \
         php7-openssl \
         php7-mbstring \
     && ln -nfs /usr/bin/php7 /usr/bin/php \
