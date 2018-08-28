@@ -18,6 +18,6 @@ RUN apk add --update \
     && ln -nfs /etc/php7 /etc/php \
     && rm -rf /var/cache/apk/*
 
-COPY --from=composer:1.6 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.7 /usr/bin/composer /usr/bin/composer
 
 CMD ["npm", "php", "composer"]
