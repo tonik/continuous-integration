@@ -22,6 +22,13 @@ RUN apk add --update \
     && ln -nfs /etc/php7 /etc/php \
     && rm -rf /var/cache/apk/*
 
+RUN apk add --update \
+        curl \
+        openssh \
+        openssh-client \
+        ca-certificates \
+    && rm -rf /var/cache/apk/*
+
 COPY --from=composer:1.7 /usr/bin/composer /usr/bin/composer
 
 CMD ["npm", "php", "composer"]
