@@ -15,5 +15,4 @@ RUN apk add --no-cache \
         libpng \
         libpng-dev \
         libtool \
-        libnotify \
-        openssh-client
+        libnotify
